@@ -1,5 +1,37 @@
 //add everything here
 
+plugins {
+    id 'java'
+}
+
+group = 'com.example.demo'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    mavenLocal() // To use locally published utils jar
+}
+
+dependencies {
+    implementation 'com.example.utils:utils:1.3.5'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.demo.Main'
+        )
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'src/main/java'
+        }
+    }
+}
+
 test {
     useJUnitPlatform()
 }
